@@ -3,6 +3,7 @@ package com.example.androiddevelopment.termin20.provider;
 import android.annotation.SuppressLint;
 import android.icu.text.DateTimePatternGenerator;
 
+import com.example.androiddevelopment.termin20.model.Film;
 import com.example.androiddevelopment.termin20.model.Glumac;
 
 import java.text.SimpleDateFormat;
@@ -12,10 +13,10 @@ import java.util.List;
 public class GlumacProvider {
 
     public SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-    public static List<Glumac> getGlumaci(){
-        ArrayList<String>filmovi = new ArrayList<>();
-        String f1 = "Kad budme mrtav i beo";
-        String f2 = "Lavirint";
+    public static List<Glumac> getGlumci(){
+        ArrayList<Film>filmovi = new ArrayList<>();
+        Film f1 = new Film(0, "Kad budme mrtav i beo");
+        Film f2 = new Film(1, "Lavirint");
         filmovi.add(f1);
         filmovi.add(f2);
         List<Glumac>glumci = new ArrayList<>();
@@ -33,9 +34,9 @@ public class GlumacProvider {
         return names;
     }
     public static Glumac getGlumacById(int id){
-        ArrayList<String>filmovi = new ArrayList<>();
-        String f1 = "Kad budme mrtav i beo";
-        String f2 = "Lavirint";
+        ArrayList<Film>filmovi = new ArrayList<>();
+        Film f1 = new Film(0, "Kad budme mrtav i beo");
+        Film f2 = new Film(1, "Lavirint");
         filmovi.add(f1);
         filmovi.add(f2);
         switch (id){

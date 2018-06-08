@@ -11,11 +11,11 @@ public class Glumac {
     int ocena;
     Date datumRodjenja;
     Date datumSmrti;
-    ArrayList<String>filmovi;
+    ArrayList<Film>filmovi;
 
     Glumac(){}
 
-    public Glumac(String ime, String prezime, String biografija, String slika, int ocena, Date datumRodjenja, Date datumSmrti, ArrayList<String> filmovi) {
+    public Glumac(String ime, String prezime, String biografija, String slika, int ocena, Date datumRodjenja, Date datumSmrti, ArrayList<Film> filmovi) {
         this.ime = ime;
         this.prezime = prezime;
         this.biografija = biografija;
@@ -82,11 +82,11 @@ public class Glumac {
         this.datumSmrti = datumSmrti;
     }
 
-    public ArrayList<String> getFilmovi() {
+    public ArrayList<Film> getFilmovi() {
         return filmovi;
     }
 
-    public void setFilmovi(ArrayList<String> filmovi) {
+    public void setFilmovi(ArrayList<Film> filmovi) {
         this.filmovi = filmovi;
     }
 
