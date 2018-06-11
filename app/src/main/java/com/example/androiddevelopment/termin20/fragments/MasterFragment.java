@@ -3,6 +3,8 @@ package com.example.androiddevelopment.termin20.fragments;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.androiddevelopment.termin20.R;
+import com.example.androiddevelopment.termin20.adapters.GlumacAdapter;
 import com.example.androiddevelopment.termin20.provider.GlumacProvider;
 
 import java.util.ArrayList;
@@ -27,8 +30,6 @@ public class MasterFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-
-        Toast.makeText(getActivity(), "MasterFragment.onAttach()", Toast.LENGTH_SHORT).show();
 
         try {
             listener = (OnItemSelectedListener) activity;
@@ -47,30 +48,30 @@ public class MasterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        Toast.makeText(getActivity(), "MasterFragment.onCreateView()", Toast.LENGTH_SHORT).show();
 
         if (container == null) {
             return null;
         }
 
-        return inflater.inflate(R.layout.master_fragment, container, false);
+        View view = inflater.inflate(R.layout.master_fragment, container, false);
+
+        return view;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        Toast.makeText(getActivity(), "MasterFragment.onActivityCreated()", Toast.LENGTH_SHORT).show();
 
-        final List<String>glumciNames = GlumacProvider.getGlumciNames();
-        ArrayAdapter<String>adapter = new ArrayAdapter<>(getActivity(),R.layout.list_item, glumciNames);
-        ListView listView = (ListView) getActivity().findViewById(R.id.listofGlumci);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                listener.onItemSelected(position);
-            }
-        });
+        final List<String> glumciNames = GlumacProvider.getGlumciNames();
+
+        // Creates an Adapter for fruits
+        GlumacAdapter dataAdapter = new GlumacAdapter(glumciNames, (OnItemSelectedListener)getActivity());
+        RecyclerView listView = (RecyclerView) getActivity().findViewById(R.id.listofGlumci);
+        // Set layout manager
+        listView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        // Assigns Adapter to RecycleView
+        listView.setAdapter(dataAdapter);
 
 
     }
@@ -130,4 +131,5 @@ public class MasterFragment extends Fragment {
 
         Toast.makeText(getActivity(), "MasterFragment.onSaveInstanceState()", Toast.LENGTH_SHORT).show();
     }
+
 }

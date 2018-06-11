@@ -18,17 +18,8 @@ import com.example.androiddevelopment.termin20.provider.GlumacProvider;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-
-
-import android.content.ContextWrapper;
-
 import com.example.androiddevelopment.termin20.R;
-import com.example.androiddevelopment.termin20.provider.GlumacProvider;
 
-import java.io.IOException;
-import java.io.InputStream;
 
 public class DetailFragment extends Fragment {
 

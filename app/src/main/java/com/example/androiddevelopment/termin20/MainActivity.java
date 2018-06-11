@@ -1,21 +1,14 @@
 package com.example.androiddevelopment.termin20;
 
 import android.app.FragmentTransaction;
-import android.content.Intent;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+
 import android.widget.Toast;
 
 import com.example.androiddevelopment.termin20.fragments.DetailFragment;
 import com.example.androiddevelopment.termin20.fragments.MasterFragment;
-import com.example.androiddevelopment.termin20.provider.GlumacProvider;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements MasterFragment.OnItemSelectedListener {
     private boolean landscape = false;
