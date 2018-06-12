@@ -1,4 +1,4 @@
-package com.example.androiddevelopment.termin20;
+package com.example.androiddevelopment.termin20.activitis;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
